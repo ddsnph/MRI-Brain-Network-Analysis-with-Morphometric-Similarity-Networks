@@ -32,16 +32,17 @@ General Process I took
 6. run freesurfer for subject file of your choosing, ensuring you in the right directory: recon-all -i /mnt/c/Users/monka/Downloads/BIDS_FINAL/sub-0028224/anat/sub-0028224_T1w.nii.gz -s 0028224 -all   (//MODIFY THIS FOR YOUR DIRECTORY YOU IN\\)
 
 
-Where my issues occured using 
+Where my issues occured using local: could not run freesurfer, kept saying cores dumped. 
 
 
 Option 2: Using Docker
 
 1. Download docker
-2. run this in command line but modify it for you: docker run -ti --rm -e DISPLAY=host.docker.internal:0.0 -v /mnt/c/Users/monka/Downloads/BIDS_FINAL:/data freesurfer/freesurfer:6.0 recon-all -i /data/sub-0028224/anat/sub-0028224_T1w.nii.gz -s 0028224 -all
+2. run this in command line but modify it for you to insert data: docker run -ti --rm -e DISPLAY=host.docker.internal:0.0 -v /mnt/c/Users/monka/Downloads/BIDS_FINAL:/data freesurfer/freesurfer:6.0 recon-all -i /data/sub-0028224/anat/sub-0028224_T1w.nii.gz -s 0028224 -all
 
 3. make sure you have a container running now
-4. 
+
+where my issue occured was not getting freesurfer to run but to get my data into the enivronment running within docker. It never recognized it or imported all my data
 
 
 
