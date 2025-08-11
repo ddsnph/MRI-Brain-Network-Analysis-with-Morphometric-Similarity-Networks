@@ -16,13 +16,14 @@ Reproducible neuroimaging pipeline that takes raw MRI DICOMs to:
 - Figures: adjacency heatmaps, surface maps, metric boxplots  
 
 ## 2) Repo layout
-.
+```text
 ├── scripts/  
 │   ├── convert_to_bids.ps1  
 │   ├── extract_slice_timing.py  
 ├── notebooks/  
 │   └── fMRI_BIDS_MSN_to_Kmeans.ipynb  
-└── README.md  
+└── README.md
+```  
 
 ## 3) Requirements
 - Linux or macOS  
