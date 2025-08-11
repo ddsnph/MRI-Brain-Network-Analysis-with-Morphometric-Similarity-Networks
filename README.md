@@ -18,30 +18,10 @@ Reproducible neuroimaging pipeline that takes raw MRI DICOMs to:
 ## 2) Repo layout
 .
 ├── scripts/  
-│   ├── convert_to_bids.py  
-│   ├── extract_morphometrics.py  
-│   ├── build_msn.py  
-│   ├── threshold_graph.py  
-│   ├── compute_graph_metrics.py  
-│   ├── cluster_analysis.py  
-│   ├── visualize_networks.py  
-│   ├── utils_io.py  
-│   └── utils_graph.py  
+│   ├── convert_to_bids.ps1  
+│   ├── extract_slice_timing.py  
 ├── notebooks/  
 │   └── fMRI_BIDS_MSN_to_Kmeans.ipynb  
-├── data/  
-│   ├── raw/  
-│   ├── bids/  
-│   └── subjects.tsv  
-├── freesurfer/  
-├── results/  
-│   ├── features/  
-│   ├── msns/  
-│   ├── graphs/  
-│   ├── metrics/  
-│   ├── clusters/  
-│   └── figures/  
-├── requirements.txt  
 └── README.md  
 
 ## 3) Requirements
