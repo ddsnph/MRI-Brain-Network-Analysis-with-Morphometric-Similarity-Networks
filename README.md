@@ -79,19 +79,19 @@ run freesurfer recon-all on multiple subject using screens
 extra stats for left and right hemisphere of brain [lh.aparc & rh.aparc]
 
 # 5) Build MSNs   
-Build morphometric similarity networks [refer to colab notebook]
+Build morphometric similarity networks [refer to notebook]
 
 # 6) Threshold graphs  
-compute thresholds [refer to colab notebook]
+compute thresholds [refer to notebook]
 
 # 7) Graph metrics  
-[refer to colab notebook]
+[refer to notebook]
 
 # 8) Cluster analysis  
-[refer to colab notebook]
+[refer to notebook]
 
 # 9) Visualizations  
-view within the colab notebook
+view within the notebook
 
 
 ## 7) Reproducing GM results 
