@@ -73,58 +73,27 @@ python scripts/convert_to_bids.py --input data/raw --output data/bids
 bids-validator data/bids  
 
 # 3) FreeSurfer  
-while read -r sid ddir t1rel; do  
-  if [ "$sid" = "subject_id" ]; then continue; fi  
-  t1="data/bids/${t1rel}"  
-  recon-all -i "$t1" -s "$sid" -all  
-done < data/subjects.tsv  
+run freesurfer recon-all on multiple subject using screens
 
 # 4) Extract morphometrics  
-python scripts/extract_morphometrics.py --subjects_dir "$SUBJECTS_DIR" --atlas dk --out_dir results/features  
+extra stats for left and right hemisphere of brain [lh.aparc & rh.aparc]
 
-# 5) Build MSNs  
-python scripts/build_msn.py --features_dir results/features --zscore_within_subject --out_dir results/msns  
+# 5) Build MSNs   
+Build morphometric similarity networks [refer to colab notebook]
 
 # 6) Threshold graphs  
-python scripts/threshold_graph.py --msn_dir results/msns --density 0.15 --out_dir results/graphs  
+compute thresholds [refer to colab notebook]
 
 # 7) Graph metrics  
-python scripts/compute_graph_metrics.py --graphs_dir results/graphs --out_dir results/metrics  
+[refer to colab notebook]
 
 # 8) Cluster analysis  
-python scripts/cluster_analysis.py --msn_dir results/msns --k_min 2 --k_max 5 --n_init 100 --out_dir results/clusters  
+[refer to colab notebook]
 
 # 9) Visualizations  
-python scripts/visualize_networks.py --msn_dir results/msns --graphs_dir results/graphs --metrics_dir results/metrics --out_dir results/figures  
+view within the colab notebook
 
-## 6) Step-by-step with arguments
-6.1 DICOM to BIDS  
-python scripts/convert_to_bids.py --input data/raw --output data/bids --force_convert  
-bids-validator data/bids  
 
-6.2 FreeSurfer recon-all  
-recon-all -i data/bids/anat/<subject>_T1w.nii.gz -s <subject> -all  
-
-6.3 Extract morphometrics  
-python scripts/extract_morphometrics.py --subjects_dir "$SUBJECTS_DIR" --atlas dk --metrics thickness thickness_std area volume meancurv gauscurv foldind curvind --out_dir results/features  
-
-6.4 Build MSNs  
-python scripts/build_msn.py --features_dir results/features --zscore_within_subject --similarity pearson --out_dir results/msns  
-
-6.5 Threshold graphs  
-python scripts/threshold_graph.py --msn_dir results/msns --density 0.15 --keep_positive_only --out_dir results/graphs  
-
-6.6 Graph metrics  
-python scripts/compute_graph_metrics.py --graphs_dir results/graphs --metrics global local clustering degree --out_dir results/metrics  
-
-6.7 Clustering  
-python scripts/cluster_analysis.py --msn_dir results/msns --vectorize upper --k_min 2 --k_max 5 --n_init 100 --random_state 42 --out_dir results/clusters  
-
-6.8 Visualizations  
-python scripts/visualize_networks.py --msn_dir results/msns --graphs_dir results/graphs --metrics_dir results/metrics --parcel_labels resources/desikan_labels.csv --out_dir results/figures  
-
-## 7) Reproducing GM results
-Use density 0.15 for main figures  
-Run sensitivity at 0.10, 0.20, 0.25, 0.30  
+## 7) Reproducing GM results 
 Z-score features within subject  
 k-means with k=2–5, pick best by silhouette  
