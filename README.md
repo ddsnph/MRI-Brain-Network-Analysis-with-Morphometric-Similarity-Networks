@@ -147,21 +147,3 @@ Use density 0.15 for main figures
 Run sensitivity at 0.10, 0.20, 0.25, 0.30  
 Z-score features within subject  
 k-means with k=2–5, pick best by silhouette  
-
-## 8) Troubleshooting
-Slice timing errors: re-run convert with --slice_timing auto  
-Skull strip failures: -noskullstrip with custom mask  
-NaN correlations: ensure all 68 regions present, no zero-variance features  
-
-## 9) Provenance
-Python 3.8.1/3.10  
-FreeSurfer 7.4.1  
-Desikan–Killiany atlas (68 cortical regions)  
-Pearson correlation for MSN  
-Random seed 42 for clustering  
-
-## 10) Citation
-Sutton, M. (2025). Structural Homogeneity of Chess Grandmasters Revealed by Morphometric Similarity Networks. University of Missouri.  
-
-## 11) License
-MIT License
